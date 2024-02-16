@@ -62,6 +62,8 @@ class LanguageTranslations extends Translations {
           'payment_type': "Тип платежа",
            'status':"Статус заказа",
           'company':"компания",
+          'app_lang':"Ilova tili"
+
 
 
         },
