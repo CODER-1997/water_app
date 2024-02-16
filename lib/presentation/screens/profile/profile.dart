@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
                   height: 100,
                   child: Image.asset('assets/images/logo.png'),
                 ),
-                Text('Ilova talqini 2.0.0+13')
+                Text('app_version'.tr.capitalizeFirst!+' 2.0.0+13')
               ],
             )
           ],

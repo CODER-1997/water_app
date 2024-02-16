@@ -122,7 +122,7 @@ class HistoryOfOrders extends StatelessWidget {
                                           } else {
                                             Get.snackbar(
                                               "Xatolik",
-                                              "Buyurtma allaqachon yo'lga chiqdi !",
+                                              "already_accepted_order".tr.capitalizeFirst!,
                                               backgroundColor: Colors.red,
                                               colorText: Colors.white,
                                               snackPosition: SnackPosition.TOP,

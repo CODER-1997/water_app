@@ -9,6 +9,7 @@ import 'package:delivery/presentation/screens/order_info/order_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:time_range_picker/time_range_picker.dart';
@@ -205,7 +206,7 @@ class SinglOrderInfo extends StatelessWidget {
                 height: 50,
                 width: Get.width/2,
                 child: Text(
-                  "Buyurtma berish",
+                  "set_order".tr.capitalizeFirst!,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w500),
                 ),

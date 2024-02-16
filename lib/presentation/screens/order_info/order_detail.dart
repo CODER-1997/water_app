@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 
@@ -49,7 +48,7 @@ class OrderDetail extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Burtma tafsilotlari",
+                            "order_details".tr.capitalizeFirst!,
                             style: appBarStyle,
                           ),
                           SizedBox(

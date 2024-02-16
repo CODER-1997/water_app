@@ -28,14 +28,19 @@ class LanguageTranslations extends Translations {
           '_accept': "Qabul qilish",
           '_rejected': "Bekor qilindi",
           '_reject': "Bekor qilish",
-          'status':"Buyurtma holati",
-          'company':"Kompaniya",
-          'company_phone':"Kompaniya telefon raqami",
-          'delivery_time':"Yetkazib berish vaqti",
-          'app_lang':"Ilova tili"
+          'status': "Buyurtma holati",
+          'company': "Kompaniya",
+          'company_phone': "Kompaniya telefon raqami",
+          'delivery_time': "Yetkazib berish vaqti",
+          'app_lang': "Ilova tili",
+          'already_accepted_order': "Buyurtma allaqachon yo'lga chiqdi",
+          'confirm': 'Tasdiqlash',
+          'order_details': 'Buyurtma tafsilotlari',
+          'set_order': "Buyurtma berish",
+          'app_version': "Ilova talqini"
         },
         'ru_RU': {
-          'company_phone':"Номер телефона компании",
+          'company_phone': "Номер телефона компании",
           'products': "Продукты",
           'product': "Продукт",
           'profile': "Профиль",
@@ -60,12 +65,20 @@ class LanguageTranslations extends Translations {
           'bonuses': "Бонусы",
           'see': "смотреть",
           'payment_type': "Тип платежа",
-           'status':"Статус заказа",
-          'company':"компания",
-          'app_lang':"Ilova tili"
-
+          'status': "Статус заказа",
+          'company': "компания",
+          'app_lang': "Язык приложения",
+          'already_accepted_order': "Заказ уже отправлен",
+          'confirm': 'Подтвердить',
+          'order_details': 'Детали заказа',
+          'set_order': "размещение заказа",
+          'app_version': "Версия приложения"
         },
         'en_US': {
+          'confirm': 'Confirm',
+          'order_details': 'Order details',
+          'set_order': "Set order",
+          'app_version': "App version",
           'total': 'total',
           'bonuses': "bonuses",
           'products': "Products",
@@ -90,11 +103,11 @@ class LanguageTranslations extends Translations {
           'do': "Apply",
           'orders': "Orders",
           'payment_type': "Payment type",
-  'status':"Order status",
-          'company':"company",
-          'company_phone':"Company phone",
-
-
+          'status': "Order status",
+          'company': "company",
+          'company_phone': "Company phone",
+          'app_lang': "App language",
+          'already_accepted_order': "The order has already been shipped"
         }
       };
 }
