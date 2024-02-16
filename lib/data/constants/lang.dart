@@ -64,8 +64,6 @@ class LanguageTranslations extends Translations {
           'company':"компания",
           'app_lang':"Ilova tili"
 
-
-
         },
         'en_US': {
           'total': 'total',
