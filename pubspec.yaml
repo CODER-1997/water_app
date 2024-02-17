@@ -46,7 +46,6 @@ dependencies:
   pin_code_fields: ^8.0.1
   carousel_slider: ^4.2.1
   dots_indicator: ^2.1.1
-  flutter_native_splash: ^2.3.10
   grouped_list: ^5.1.2
 
 
@@ -73,18 +72,12 @@ flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/intro/delivery.png"
+  image_path: "assets/images/logoes/logo.png"
   min_sdk_android: 21
 
 
 
-flutter_native_splash:
-  color: "#ffffff"
-  image: "assets/images/logo.png"
-  branding: "assets/images/logo.png"
-  color_dark: "#ffffff"
-  image_dark: "assets/images/logo.png"
-  branding_dark: "assets/images/logo.png"
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
