@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../data/constants/utils.dart';
 
@@ -81,7 +82,10 @@ class Login extends StatelessWidget {
                 TextFormField(
                   controller: courierPhone,
                   style: TextStyle(color: Colors.white),
-                  inputFormatters: [Utils.phoneMaskFormatter],
+                  inputFormatters: [MaskTextInputFormatter(
+                      mask: '+998 ## ### ## ##',
+                      filter: {"#": RegExp(r'[0-9]')},
+                      type: MaskAutoCompletionType.lazy)],
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     labelText: 'Tel',

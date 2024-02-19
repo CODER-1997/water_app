@@ -37,9 +37,20 @@ class LanguageTranslations extends Translations {
           'confirm': 'Tasdiqlash',
           'order_details': 'Buyurtma tafsilotlari',
           'set_order': "Buyurtma berish",
-          'app_version': "Ilova talqini"
+          'app_version': "Ilova talqini",
+          'active_orders':"Faol buyurtmalar",
+          'rejected_orders':"Rad etilgan buyurtmalar",
+          'ready_for_shipping':"Yetkazilish jarayonida",
+          'order_history':"Buyurtmalar tarixi",
+          "shipped_and_paid":"Yetkazilgan va to'langan"
+
         },
         'ru_RU': {
+          'rejected_orders':"Отклоненные заказы",
+  "shipped_and_paid": "Отправлено и оплачено",
+          'active_orders':"Активные заказы",
+          'ready_for_shipping':"В процессе отправки",
+          'order_history':"История заказов",
           'company_phone': "Номер телефона компании",
           'products': "Продукты",
           'product': "Продукт",
@@ -75,6 +86,11 @@ class LanguageTranslations extends Translations {
           'app_version': "Версия приложения"
         },
         'en_US': {
+          'rejected_orders':"Rejected orders",
+          "shipped_and_paid": "Shipped and paid",
+          'active_orders':"Active orders",
+          'ready_for_shipping':"Ready for shipping",
+          'order_history':"History of orders",
           'confirm': 'Confirm',
           'order_details': 'Order details',
           'set_order': "Set order",

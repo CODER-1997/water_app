@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:time_range_picker/time_range_picker.dart';
 
 import '../../../domain/controllers/single_order_controller.dart';
@@ -295,7 +296,7 @@ class OrderDetail extends StatelessWidget {
                                         child: CustomButton(
                                             isLoading:
                                                 orderController.isLoading.value,
-                                            text: 'Tasdiqlash'),
+                                            text: 'confirm'.tr.capitalizeFirst!),
                                       ),
                                       SizedBox(
                                         height: 8,
@@ -326,7 +327,7 @@ class OrderDetail extends StatelessWidget {
                       }
                     },
                     child: CustomButton(
-                      text: 'Buyurtma berish',
+                      text: 'set_order'.tr.capitalizeFirst!,
                     ),
                   )),
             ),
@@ -393,7 +394,10 @@ class OrderDetailItem extends StatelessWidget {
                                 controller: controller,
                                 inputFormatters:
                                     placeholder == 'phone'.tr.capitalizeFirst
-                                        ? [Utils.phoneMaskFormatter]
+                                        ? [MaskTextInputFormatter(
+                                        mask: '+998 ## ### ## ##',
+                                        filter: {"#": RegExp(r'[0-9]')},
+                                        type: MaskAutoCompletionType.lazy)]
                                         : [],
                                 decoration:
                                     buildInputDecoratione(placeholder ?? ''),
@@ -407,7 +411,7 @@ class OrderDetailItem extends StatelessWidget {
                                   subtitle.value = controller?.text ?? "";
                                   Navigator.pop(context);
                                 },
-                                child: CustomButton(text: 'Tasdiqlash'),
+                                child: CustomButton(text: 'confirm'.tr.capitalizeFirst!),
                               )
                             ],
                           ),
@@ -475,7 +479,7 @@ class OrderDetailItem extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text("Title"),
+                                          Text(placeholder??""),
                                           TextFormField(
                                             keyboardType: placeholder ==
                                                     'phone'.tr.capitalizeFirst
@@ -484,7 +488,10 @@ class OrderDetailItem extends StatelessWidget {
                                             controller: controller,
                                             inputFormatters: placeholder ==
                                                     'phone'.tr.capitalizeFirst
-                                                ? [Utils.phoneMaskFormatter]
+                                                ? [MaskTextInputFormatter(
+                                                mask: '+998 ## ### ## ##',
+                                                filter: {"#": RegExp(r'[0-9]')},
+                                                type: MaskAutoCompletionType.lazy)]
                                                 : [],
                                             decoration: buildInputDecoratione(
                                                 placeholder ?? ''),
@@ -502,7 +509,7 @@ class OrderDetailItem extends StatelessWidget {
                                               Navigator.pop(context);
                                             },
                                             child: CustomButton(
-                                                text: 'Tasdiqlash'),
+                                                text: 'confirm'.tr.capitalizeFirst!),
                                           )
                                         ],
                                       ),

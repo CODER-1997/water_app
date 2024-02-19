@@ -66,10 +66,6 @@ class SingleOrderController extends GetxController {
     Get.back();
     isLoading.value = true;
     try {
-      // Retrieve the current list
-      if (GetStorage().read('userId') ==null) {
-        GetStorage().write( 'userId', DateTime.now().toString());
-      }
 
 
       OrderData newData = OrderData(

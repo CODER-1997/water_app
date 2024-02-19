@@ -1,4 +1,5 @@
-import 'package:delivery/presentation/screens/history/history_of_orders.dart';
+import 'package:delivery/presentation/screens/history/active_orders.dart';
+import 'package:delivery/presentation/screens/history/rejected_orders.dart';
 import 'package:delivery/presentation/screens/introduction_screen/introduction_screen.dart';
 import 'package:delivery/presentation/screens/products/products.dart';
 import 'package:delivery/presentation/screens/profile/Profile.dart';
@@ -9,10 +10,18 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:upgrader/upgrader.dart';
 
+import '../history/history_of_orders.dart';
+
+
 class Home extends StatelessWidget {
   var box = GetStorage();
   RxInt _currentIndex = 0.obs;
-  RxList screens = [Products(),HistoryOfOrders(), Profile()].obs;
+  RxList screens = [
+    Products(),
+    ActiveOrders(),
+    HistoryOfOrders(),
+    RejectedOrders(),
+    Profile()].obs;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +41,8 @@ class Home extends StatelessWidget {
                 ),
               ),
               bottomNavigationBar: BottomNavigationBar(
+                selectedItemColor: Colors.blueAccent,
+                unselectedItemColor: Colors.black,
                 currentIndex: _currentIndex.value,
                 onTap: (int index) {
                   _currentIndex.value = index;
@@ -42,7 +53,15 @@ class Home extends StatelessWidget {
                     label: 'products'.tr.capitalizeFirst,
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.time),
+                    icon: Icon(CupertinoIcons.rocket_fill),
+                    label: 'active_orders'.tr.capitalizeFirst,
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.clock),
+                    label: 'history'.tr.capitalizeFirst,
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.cancel),
                     label: 'history'.tr.capitalizeFirst,
                   ),
                   BottomNavigationBarItem(

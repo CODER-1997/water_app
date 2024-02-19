@@ -64,8 +64,8 @@ class OrdersOfCourier extends StatelessWidget {
                         itemBuilder: (c, element) {
                           // Get document data
                           // You can access individual fields like doc['field_name']
-                          return element['items']['companyId'] ==
-                                  box.read('companyId')
+                          return element['items']['companyId'].replaceAll(" ",'') ==
+                                  box.read('companyId').replaceAll(" ",'') && element['items']['status']!='rejected'
                               ? Container(
                                   margin: EdgeInsets.all(8),
                                   padding: EdgeInsets.all(12),

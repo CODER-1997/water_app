@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../data/constants/utils.dart';
 import '../../domain/controllers/single_order_controller.dart';
@@ -137,7 +138,10 @@ class OrderCard extends StatelessWidget {
                                       keyboardType: TextInputType.phone,
                                       controller: phone,
                                       inputFormatters: [
-                                        Utils.phoneMaskFormatter
+                                        MaskTextInputFormatter(
+                                            mask: '+998 ## ### ## ##',
+                                            filter: {"#": RegExp(r'[0-9]')},
+                                            type: MaskAutoCompletionType.lazy)
                                       ],
                                       decoration: buildInputDecoratione(
                                           'phone'.tr.capitalizeFirst! ?? ''),
