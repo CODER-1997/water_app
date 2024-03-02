@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDqPxMLCy626VKbYTe_QyuRjTxwOugCxl0',
-    appId: '1:448392791773:android:cffd60cc6222e06c733d34',
+    appId: '1:448392791773:android:4132425d491396d2733d34',
     messagingSenderId: '448392791773',
     projectId: 'fooddelivery-f58a5',
     storageBucket: 'fooddelivery-f58a5.appspot.com',
