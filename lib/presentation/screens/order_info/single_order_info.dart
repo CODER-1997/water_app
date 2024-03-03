@@ -57,22 +57,22 @@ class SinglOrderInfo extends StatelessWidget {
                     Stack(
                       alignment: Alignment.topLeft,
                       children: [
-                        GestureDetector(
-                          onTap: (){
-                            Get.offAll(Home());
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(12)
-                            ),
-                            child: Icon(Icons.arrow_back,color: Colors.black26,),
-                          ),
-                        ),
-                        
+                        // InkWell(
+                        //   onTap: (){
+                        //     Get.offAll(Home());
+                        //   },
+                        //   child: Container(
+                        //     alignment: Alignment.center,
+                        //     width: 50,
+                        //     height: 50,
+                        //     decoration: BoxDecoration(
+                        //       border: Border.all(color: Colors.grey),
+                        //       borderRadius: BorderRadius.circular(12)
+                        //     ),
+                        //     child: Icon(Icons.arrow_back,color: Colors.black26,),
+                        //   ),
+                        // ),
+                        //
                         Container(
                           alignment: Alignment.center,
                           height: Get.height / 3,

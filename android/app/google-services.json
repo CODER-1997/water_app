@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448392791773",
+    "project_id": "fooddelivery-f58a5",
+    "storage_bucket": "fooddelivery-f58a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448392791773:android:2718d34d4f5d8614733d34",
+        "android_client_info": {
+          "package_name": "beki.applications.delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqPxMLCy626VKbYTe_QyuRjTxwOugCxl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

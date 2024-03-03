@@ -175,6 +175,7 @@ class OrderCard extends StatelessWidget {
                                       if (_formKey.currentState!.validate()) {
                                         box.write('userId', phone.text);
                                         box.write('userName', userFio.text);
+                                        Get.back;
                                         Get.to(SinglOrderInfo(
                                           title: title,
                                           price: price,
