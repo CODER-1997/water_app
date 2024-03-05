@@ -30,12 +30,12 @@ class Profile extends StatelessWidget {
           children: [
             Column(
                       children: [
-            GestureDetector(
-                onTap: () {
-                  Get.to(AboutApp());
-                },
-                child: SettingsItem(icon: Icons.info, title: 'about_app'.tr)),
-            SizedBox(height: 16,),
+            // GestureDetector(
+            //     onTap: () {
+            //       Get.to(AboutApp());
+            //     },
+            //     child: SettingsItem(icon: Icons.info, title: 'about_app'.tr)),
+            // SizedBox(height: 16,),
             GestureDetector(
                 onTap: () {
                   Get.to(ChangeLanguageScreen());
