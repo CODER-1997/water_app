@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../data/constants/theme.dart';
+import '../../../data/constants/utils.dart';
 import '../../custom_widgets/gradient_button.dart';
 
 class OrderHistoryOfCourier extends StatelessWidget {
@@ -72,8 +73,8 @@ class OrderHistoryOfCourier extends StatelessWidget {
                         title: '${'delivery_place'.tr.capitalizeFirst}:',
                         value: doc['items']['items']['where'],
                       ),
-                      CustomButton(text: doc['items']['items']['status'],color: Color(
-                          0xff24be66),)
+                      CustomButton(text: doc['items']['items']['status'],color: Utils.getColor(
+                          doc['items']['items']['status']),)
 
                     ],
                   ),

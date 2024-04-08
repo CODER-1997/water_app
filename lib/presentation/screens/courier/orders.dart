@@ -39,7 +39,11 @@ class OrdersOfCourier extends StatelessWidget {
               }
               // If data is available
               if (snapshot.hasData) {
-                return snapshot.data!.docs.length != 0
+                return snapshot.data!.docs
+                            .where((element) =>
+                                element['items']['status'] == 'new' || element['items']['status'] == 'accepted' || element['items']['status'] != 'finished' )
+                            .length !=
+                        0
                     ? GroupedListView(
                         elements: snapshot.data!.docs,
                         groupBy: (element) => element['items']['when'],
@@ -58,14 +62,13 @@ class OrdersOfCourier extends StatelessWidget {
                         floatingHeader: true,
                         // optional
                         order: GroupedListOrder.DESC,
-                        // Get document data
-                        // var doc = snapshot.data!.docs[index];
-                        // You can access individual fields like doc['field_name']
                         itemBuilder: (c, element) {
-                          // Get document data
-                          // You can access individual fields like doc['field_name']
-                          return element['items']['companyId'].replaceAll(" ",'') ==
-                                  box.read('companyId').replaceAll(" ",'') && element['items']['status']!='rejected'
+                          return element['items']['companyId']
+                                          .replaceAll(" ", '') ==
+                                      box
+                                          .read('companyId')
+                                          .replaceAll(" ", '') &&
+                                  element['items']['status'] != 'rejected'
                               ? Container(
                                   margin: EdgeInsets.all(8),
                                   padding: EdgeInsets.all(12),
@@ -95,7 +98,8 @@ class OrdersOfCourier extends StatelessWidget {
                                       ),
                                       Item(
                                         title: '${'bonus'.tr.capitalizeFirst}:',
-                                        value: element['items']['bonus'].toString(),
+                                        value: element['items']['bonus']
+                                            .toString(),
                                       ),
                                       Item(
                                         title:
@@ -124,6 +128,14 @@ class OrdersOfCourier extends StatelessWidget {
                                                     'new') {
                                                   orderController
                                                       .acceptOrder(element.id);
+                                                  // courierController.addHistory(
+                                                  //     box.read('courierId'),
+                                                  //     element.id);
+                                                } else if (element['items']
+                                                        ['status'] ==
+                                                    'accepted') {
+                                                  orderController
+                                                      .finishOrder(element.id);
                                                   courierController.addHistory(
                                                       box.read('courierId'),
                                                       element.id);

@@ -20,9 +20,9 @@ class HistoryOfOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: homePagebg,
-      appBar: AppBar(
-        title: Text('order_history'.tr.capitalizeFirst!,style: appBarStyle,),
-      ),
+      // appBar: AppBar(
+      //   title: Text('order_history'.tr.capitalizeFirst!,style: appBarStyle,),
+      // ),
       body: StreamBuilder(
         stream:
         FirebaseFirestore.instance.collection('waterOrders').snapshots(),
@@ -35,7 +35,7 @@ class HistoryOfOrders extends StatelessWidget {
           }
           // If data is available
           if (snapshot.hasData) {
-            return snapshot.data!.docs.where((element) => element['items']['status']=='accepted').length != 0
+            return snapshot.data!.docs.where((element) => element['items']['status']=='finished').length != 0
                 ? GroupedListView(
               elements: snapshot.data!.docs,
               groupBy: (element) => element['items']['when'],
@@ -60,7 +60,7 @@ class HistoryOfOrders extends StatelessWidget {
               // You can access individual fields like doc['field_name']
               itemBuilder: (c, element) {
                 return element['items']['customerId'] ==
-                    GetStorage().read('userId').toString() && element['items']['status']=='accepted'
+                    GetStorage().read('userId').toString() && element['items']['status']=='finished'
                     ? Container(
                   margin: EdgeInsets.all(8),
                   padding: EdgeInsets.all(12),

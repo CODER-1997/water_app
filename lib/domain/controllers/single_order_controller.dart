@@ -62,59 +62,59 @@ class SingleOrderController extends GetxController {
 // Firestore
   final CollectionReference _dataCollection = FirebaseFirestore.instance.collection('waterOrders');
 
-  void addNewOrder(int bonus, int price,String companyPhone) async {
-    Get.back();
-    isLoading.value = true;
-    try {
+    void addNewOrder(int bonus, int price,String companyPhone) async {
+      Get.back();
+      isLoading.value = true;
+      try {
 
 
-      OrderData newData = OrderData(
-          count: count.value,
-          day: createdAt.value,
-          from: startTime.value,
-          to: endTime.value,
-          where: where.text,
-          phone: phone.text,
-          price: price,
-          user: fio.text,
-          when: DateTime.now().toString(),
-          companyId: companyId.value,
-          status: 'new',
-          bonus: bonus,
-          courierName: '',
-          courierId: '',
-          courierPhone: '', companyPhone: companyPhone, customerId: GetStorage().read('userId').toString());
-      // Create a new document with an empty list
-      await _dataCollection.add({
-        'items': newData.toMap(),
-      });
-      Get.snackbar(
-        "Success !",
-        "Buyurtma qabul qilindi !",
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
-        snackPosition: SnackPosition.TOP,
-      );
-      print('Data added to the list in Firestore');
+        OrderData newData = OrderData(
+            count: count.value,
+            day: createdAt.value,
+            from: startTime.value,
+            to: endTime.value,
+            where: where.text,
+            phone: phone.text,
+            price: price,
+            user: fio.text,
+            when: DateTime.now().toString(),
+            companyId: companyId.value,
+            status: 'new',
+            bonus: bonus,
+            courierName: '',
+            courierId: '',
+            courierPhone: '', companyPhone: companyPhone, customerId: GetStorage().read('userId').toString());
+        // Create a new document with an empty list
+        await _dataCollection.add({
+          'items': newData.toMap(),
+        });
+        Get.snackbar(
+          "Success !",
+          "Buyurtma qabul qilindi !",
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.TOP,
+        );
+        print('Data added to the list in Firestore');
+        isLoading.value = false;
+        Get.offAll(Home());
+        where.clear();
+        phone.clear();
+        fio.clear();
+      } catch (e) {
+        print(e);
+        Get.snackbar(
+          'Error:${e}',
+          e.toString(),
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
       isLoading.value = false;
-      Get.offAll(Home());
-      where.clear();
-      phone.clear();
-      fio.clear();
-    } catch (e) {
-      print(e);
-      Get.snackbar(
-        'Error:${e}',
-        e.toString(),
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
-    isLoading.value = false;
 
-// Firestore
-  }
+  // Firestore
+    }
 
   var box = GetStorage();
 
@@ -137,6 +137,34 @@ class SingleOrderController extends GetxController {
       // Update the desired field
       await documentReference.update({
         'items.status': 'accepted',
+        'items.courierName': box.read('courierName'),
+        'items.courierId': box.read('courierId'),
+        'items.courierPhone': box.read('courierPhone'),
+      });
+      print('Updated succesfully');
+      isLoading.value = false;
+    } catch (e) {
+      print('Error updating document field: $e');
+      isLoading.value = false;
+    }
+    isLoading.value = false;
+  }
+  void finishOrder(String documentId) async {
+    isLoading.value = true;
+
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+    // Function to update a specific document field by document ID
+    try {
+      isLoading.value = true;
+
+      // Reference to the document
+      DocumentReference documentReference =_firestore.collection('waterOrders').doc(documentId);
+
+
+      // Update the desired field
+      await documentReference.update({
+        'items.status': 'finished',
         'items.courierName': box.read('courierName'),
         'items.courierId': box.read('courierId'),
         'items.courierPhone': box.read('courierPhone'),

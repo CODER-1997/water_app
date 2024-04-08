@@ -20,9 +20,9 @@ class RejectedOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: homePagebg,
-      appBar: AppBar(
-        title: Text('rejected_orders'.tr.capitalizeFirst!,style: appBarStyle,),
-      ),
+      // appBar: AppBar(
+      //   title: Text('rejected_orders'.tr.capitalizeFirst!,style: appBarStyle,),
+      // ),
       body: StreamBuilder(
         stream:
         FirebaseFirestore.instance.collection('waterOrders').snapshots(),

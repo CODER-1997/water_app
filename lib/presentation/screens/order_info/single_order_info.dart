@@ -1,20 +1,11 @@
-import 'dart:ffi';
-
-import 'package:delivery/data/constants/text_styles.dart';
-import 'package:delivery/data/constants/theme.dart';
 import 'package:delivery/domain/controllers/single_order_controller.dart';
-import 'package:delivery/presentation/custom_widgets/gradient_button.dart';
-import 'package:delivery/presentation/screens/home/home_screen.dart';
 import 'package:delivery/presentation/screens/order_info/order_detail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:lottie/lottie.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:time_range_picker/time_range_picker.dart';
 
-import '../../custom_widgets/FormFieldDecorator.dart';
+import '../home/home_screen.dart';
 
 class SinglOrderInfo extends StatelessWidget {
   SingleOrderController orderController = Get.put(SingleOrderController());
@@ -35,6 +26,9 @@ class SinglOrderInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
           resizeToAvoidBottomInset: true,
+          appBar: AppBar(
+            backgroundColor: Color(0xffd2e8ff),
+          ),
 
           body: Container(
             width: Get.width,
@@ -46,7 +40,8 @@ class SinglOrderInfo extends StatelessWidget {
                 end: Alignment.bottomRight,
                 colors: [
                   Color(0xffd2e8ff),
-                  Colors.white,
+                  Color(0xffd2e8ff),
+                  //Colors.white,
                 ],
               ),
             ),
@@ -72,7 +67,7 @@ class SinglOrderInfo extends StatelessWidget {
                         //     child: Icon(Icons.arrow_back,color: Colors.black26,),
                         //   ),
                         // ),
-                        //
+
                         Container(
                           alignment: Alignment.center,
                           height: Get.height / 3,
@@ -95,7 +90,7 @@ class SinglOrderInfo extends StatelessWidget {
                         fontSize: 32
                     ),
                         ),  Text(
-                          "${price} so'm",
+                          "${price} ${'sum'.tr.capitalizeFirst}",
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.w900,
@@ -110,8 +105,13 @@ class SinglOrderInfo extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Text("bottle_type".tr.capitalizeFirst!, style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 22
+                        ),),
                         Text(
-                          "20 L lik qadoqda",
+                          "20 L",
                           style: TextStyle(
                               color: Colors.black26,
                               fontWeight: FontWeight.w900,
@@ -129,15 +129,7 @@ class SinglOrderInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Tasnifi:",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 22
-                          ),
-                        ),
-                        Text('In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying ')
+
 
                       ],
                     ),

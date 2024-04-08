@@ -1,4 +1,5 @@
 import 'package:delivery/presentation/screens/history/active_orders.dart';
+import 'package:delivery/presentation/screens/history/all_type_of_orders.dart';
 import 'package:delivery/presentation/screens/history/rejected_orders.dart';
 import 'package:delivery/presentation/screens/introduction_screen/introduction_screen.dart';
 import 'package:delivery/presentation/screens/products/products.dart';
@@ -18,10 +19,11 @@ class Home extends StatelessWidget {
   RxInt _currentIndex = 0.obs;
   RxList screens = [
     Products(),
-    ActiveOrders(),
-    HistoryOfOrders(),
-    RejectedOrders(),
-    Profile()].obs;
+    //ActiveOrders(),
+    AllTypeOfOrders(),
+  //  RejectedOrders(),
+    Profile()
+     ].obs;
 
   @override
   Widget build(BuildContext context) {
@@ -52,18 +54,18 @@ class Home extends StatelessWidget {
                     icon: Icon(Icons.water_drop),
                     label: 'products'.tr.capitalizeFirst,
                   ),
-                  BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.rocket_fill),
-                    label: 'active_orders'.tr.capitalizeFirst,
-                  ),
-                  BottomNavigationBarItem(
+                  // BottomNavigationBarItem(
+                  //   icon: Icon(CupertinoIcons.rocket_fill),
+                  //   label: 'active_orders'.tr.capitalizeFirst,
+                  // ),
+                BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.clock),
                     label: 'history'.tr.capitalizeFirst,
                   ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.cancel),
-                    label: 'history'.tr.capitalizeFirst,
-                  ),
+                  // BottomNavigationBarItem(
+                  //   icon: Icon(Icons.cancel),
+                  //   label: 'rejected_orders'.tr.capitalizeFirst,
+                  // ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.person),
                     label: 'profile'.tr.capitalizeFirst,

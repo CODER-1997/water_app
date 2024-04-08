@@ -148,8 +148,7 @@ class Login extends StatelessWidget {
                   },
                   child: Text('Kirish'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.blue,
+
                     padding: EdgeInsets.symmetric(vertical: 15.0),
                   ),
                 ),

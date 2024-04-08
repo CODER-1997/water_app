@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delivery/presentation/screens/order_info/single_order_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ class OrderCard extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 16),
       height: 200,
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -63,8 +65,11 @@ class OrderCard extends StatelessWidget {
 
                   //       color: Color(0xfff1f7ff),
                   borderRadius: BorderRadius.circular(12)),
-              child: Image.asset(
-                'assets/images/order_card/${img}.png',
+              child: img.isNotEmpty ? FadeInImage(
+                image:  NetworkImage(img),
+                placeholder: AssetImage("assets/images/order_card/bottle.png"),
+              ): Image.asset(
+                'assets/images/order_card/bottle.png',
               )),
           SizedBox(),
           Column(
@@ -86,7 +91,7 @@ class OrderCard extends StatelessWidget {
                 height: 16,
               ),
               Text(
-                '20 L lik idish',
+                '20 L',
                 style: TextStyle(
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
@@ -96,7 +101,7 @@ class OrderCard extends StatelessWidget {
                 height: 16,
               ),
               Text(
-                "${price} so'm",
+                "${price} ${"sum".tr}",
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
@@ -165,11 +170,11 @@ class OrderCard extends StatelessWidget {
                                     },
                                     controller: userFio,
                                     decoration: buildInputDecoratione(
-                                        'F.I.O'.tr.capitalizeFirst! ?? ''),
+                                        'F.I.O'.tr ?? ''),
                                   ),
                                 ),
                                 SizedBox(height: 16,),
-                                Text('Muhim:Yuqorida kiritilgan raqamingiz orqali siz boshqa mobil qurilmadan ilovaga kirgan paytingizda sizning buyurtmalaringiz chiqadi'),],),
+                                Text('warning_info'.tr.capitalizeFirst!),],),
                                   InkWell(
                                     onTap: () {
                                       if (_formKey.currentState!.validate()) {
