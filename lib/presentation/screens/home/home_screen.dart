@@ -38,6 +38,7 @@ class Home extends StatelessWidget {
                       url: "",
                     )),
                 child: Container(
+                  height: Get.height,
                   // padding: EdgeInsets.only(left: 16,right: 16,top: 16),
                   child: screens[_currentIndex.value],
                 ),

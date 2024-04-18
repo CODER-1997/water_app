@@ -109,11 +109,15 @@ class HistoryOfOrders extends StatelessWidget {
                         children: [
                           Icon(Icons.location_pin,color: Colors.black38,size: 18,),
                           SizedBox(width: 4,),
-                          Text("${element['items']['where']}".capitalizeFirst!,
-                            style: TextStyle(
-                                color: Colors.black38,
-                                fontWeight: FontWeight.w800
-                            ),),
+                          Container(
+                            child: Text("${element['items']['where']}".capitalizeFirst!.length>20 ?"${element['items']['where']}".capitalizeFirst!.substring(0,40)+" . . .":"${element['items']['where']}".capitalizeFirst! ,
+                              style: TextStyle(
+                                  color: Colors.black38,
+                                  fontWeight: FontWeight.w800
+                              ),
+
+                            overflow: TextOverflow.clip,),
+                          ),
                         ],
                       ),
                       SizedBox(height: 32,),
@@ -126,7 +130,7 @@ class HistoryOfOrders extends StatelessWidget {
                             fontWeight: FontWeight.w800
                         )),
                         Text(
-                            "${element['items']['price']} so'm", style: TextStyle(
+                            "${element['items']['price']} ${'sum'.tr}", style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w800
                         ))

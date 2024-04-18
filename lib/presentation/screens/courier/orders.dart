@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery/domain/controllers/courier_controller.dart';
 import 'package:delivery/domain/controllers/single_order_controller.dart';
+import 'package:delivery/presentation/custom_widgets/custom_shimmer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,18 +33,25 @@ class OrdersOfCourier extends StatelessWidget {
                 .snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return SingleChildScrollView(child: CustomShimmer());
               }
               if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               }
               // If data is available
               if (snapshot.hasData) {
-                return snapshot.data!.docs
-                            .where((element) =>
-                                element['items']['status'] == 'new' || element['items']['status'] == 'accepted' || element['items']['status'] != 'finished' )
-                            .length !=
-                        0
+                var list = snapshot.data!.docs
+                    .where((element) =>
+                        element['items']['status'] == 'new' &&
+                        (element['items']['companyId'].replaceAll(" ", '').toString().toLowerCase() ==
+                            box.read('companyId').replaceAll(" ", '').toString().toLowerCase())
+
+
+                )
+                    .toList();
+
+                print(list);
+                return list.length != 0
                     ? GroupedListView(
                         elements: snapshot.data!.docs,
                         groupBy: (element) => element['items']['when'],
@@ -64,11 +72,11 @@ class OrdersOfCourier extends StatelessWidget {
                         order: GroupedListOrder.DESC,
                         itemBuilder: (c, element) {
                           return element['items']['companyId']
-                                          .replaceAll(" ", '') ==
+                                          .replaceAll(" ", '').toString().toLowerCase() ==
                                       box
                                           .read('companyId')
-                                          .replaceAll(" ", '') &&
-                                  element['items']['status'] != 'rejected'
+                                          .replaceAll(" ", '').toString().toLowerCase() &&
+                                  element['items']['status'] == 'new'
                               ? Container(
                                   margin: EdgeInsets.all(8),
                                   padding: EdgeInsets.all(12),
@@ -97,7 +105,7 @@ class OrdersOfCourier extends StatelessWidget {
                                             .toString(),
                                       ),
                                       Item(
-                                        title: '${'bonus'.tr.capitalizeFirst}:',
+                                        title: '${'bonuses'.tr.capitalizeFirst}:',
                                         value: element['items']['bonus']
                                             .toString(),
                                       ),
@@ -115,17 +123,16 @@ class OrdersOfCourier extends StatelessWidget {
                                         value: element['items']['where'],
                                       ),
                                       Item(
-                                        title: 'Status:',
+                                        title: '${'status'.tr.capitalizeFirst}:',
                                         value: element['items']['status'],
                                         color: Utils.getColor(
                                             element['items']['status']),
                                       ),
-                                      element['items']['status'] != 'rejected'
+                                      element['items']['status'] =='new'
                                           ? GestureDetector(
                                               onTap: () {
-                                                if (element['items']
-                                                        ['status'] ==
-                                                    'new') {
+                                                print(element.id);
+                      if (element['items']['status'] =='new') {
                                                   orderController
                                                       .acceptOrder(element.id);
                                                   // courierController.addHistory(

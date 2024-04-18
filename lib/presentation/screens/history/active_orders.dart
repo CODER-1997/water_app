@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery/data/constants/text_styles.dart';
 import 'package:delivery/data/constants/theme.dart';
 import 'package:delivery/domain/controllers/single_order_controller.dart';
+import 'package:delivery/presentation/custom_widgets/custom_shimmer.dart';
 import 'package:delivery/presentation/custom_widgets/gradient_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +31,14 @@ class ActiveOrders extends StatelessWidget {
         stream:FirebaseFirestore.instance.collection('waterOrders').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return SingleChildScrollView(child: CustomShimmer(),);
           }
           if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           }
           // If data is available
           if (snapshot.hasData) {
+
             return snapshot.data!.docs
                         .where((element) =>
                             (element['items']['status'] == 'new' ||
@@ -150,7 +152,7 @@ class ActiveOrders extends StatelessWidget {
                                           style: TextStyle(
                                               color: Colors.black38,
                                               fontWeight: FontWeight.w800)),
-                                      Text("${element['items']['price']} so'm",
+                                      Text("${element['items']['price']} ${'sum'.tr}",
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w800))

@@ -1,6 +1,7 @@
 import 'package:delivery/presentation/custom_widgets/settings_item.dart';
 import 'package:delivery/presentation/screens/about_app/about_app.dart';
 import 'package:delivery/presentation/screens/profile/about_company.dart';
+import 'package:delivery/presentation/screens/profile/support_center.dart';
 import 'package:delivery/presentation/screens/settings/change_language_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,16 @@ class Profile extends StatelessWidget {
                     child: SettingsItem(
                         icon: Icons.account_balance_outlined,
                         title: 'about_company'.tr.capitalizeFirst!)),
+                SizedBox(
+                  height: 16,
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Get.to(SupportCenter());
+                    },
+                    child: SettingsItem(
+                        icon: Icons.support_agent,
+                        title: 'help'.tr.capitalizeFirst!)),
               ],
             ),
             Column(

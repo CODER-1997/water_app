@@ -4,6 +4,7 @@ class LanguageTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
   'uz_UZ': {
+    'help':"qo'llab-quvvatlash xizmati",
   "warning_info":
   "Muhim:Yuqorida kiritilgan raqamingiz orqali siz boshqa mobil qurilmadan ilovaga kirgan paytingizda sizning buyurtmalaringiz chiqadi",
   'products': "Maxsulotlar",
@@ -50,9 +51,12 @@ class LanguageTranslations extends Translations {
   'bottle_type':"Hajmi",
   'finished_order':"Yakunlangan",
   "active_order":"Kutilyapti",
-  "rejected_order":"Bekor qilingan"
+  "rejected_order":"Bekor qilingan",
+    'finish_order':"Yakunlash"
   },
   'ru_RU': {
+   'finish_order':"Заканчивать",
+    'help':"служба поддержки",
   'finished_order':"Завершено",
   "active_order":"Ожидание",
   "rejected_order":"Отменено",
@@ -105,6 +109,9 @@ class LanguageTranslations extends Translations {
   ,
 },
 'en_US': {
+  'finish_order':"finish_order",
+  'help':"Support service",
+
   'finished_order':"Finished",
   "active_order":"Pending",
   "rejected_order":"Cancelled",

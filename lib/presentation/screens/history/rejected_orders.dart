@@ -126,7 +126,7 @@ class RejectedOrders extends StatelessWidget {
                             fontWeight: FontWeight.w800
                         )),
                         Text(
-                            "${element['items']['price']} so'm", style: TextStyle(
+                            "${element['items']['price']} ${'sum'.tr}", style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w800
                         ))

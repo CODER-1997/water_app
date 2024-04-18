@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class CustomBottomSheet extends StatelessWidget {
+
+  final String title;
+  CustomBottomSheet({required this.title});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,7 +43,7 @@ class CustomBottomSheet extends StatelessWidget {
             width: 233,
               child: Image.asset('assets/images/order_card/img_2.png')),
           Text(
-            'This is a custom bottom sheet with gradient background',
+            title,
             style: TextStyle(color: Colors.white),
           ),
           SizedBox(height: 20),
