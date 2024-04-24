@@ -1,18 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SupportCenter extends StatelessWidget {
   const SupportCenter({super.key});
-  _launchDialer(String phoneNumber) async {
-    String url = 'tel:$phoneNumber';
-    if (await canLaunchUrl(Uri.parse(phoneNumber))) {
-      await launchUrl(Uri.parse(phoneNumber));
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +18,6 @@ class SupportCenter extends StatelessWidget {
         child: Column(children: [
           InkWell(
             onTap: (){
-              _launchDialer('+998 88 531 22 22');
             },
             child: Container(
               margin: EdgeInsets.only(bottom: 12),
